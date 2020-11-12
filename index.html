@@ -41,26 +41,29 @@
                         <input class="fontawesome" type="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div id="contacts">
-                        <ul>
-                            <li v-for="(object, index) in contacts">
-                                <div class="left-list">
-                                    <img :src="object.avatar" alt="">
-                                </div>
-                                <div class="right-list">
-                                    <p>
-                                        <strong>{{object.name}}</strong>
-                                    </p>
-                                    <p>Lorem ipsum dolor sit amet,</p>
-
-                                </div>
-                            </li>
-                        </ul>
+                        <div @click="getUser(object)" class="contact" v-for="(object, index) in contacts">
+                            <div class="left-list">
+                                <img :src="object.avatar" alt="">
+                            </div>
+                            <div class="right-list">
+                                <p>
+                                    <strong>{{object.name}}</strong>
+                                </p>
+                                <p>Lorem ipsum dolor sit amet,</p>
+                            </div>
+                        </div>
                     </div>
 
 
                 </div>
                 <div class="right-window">
                     <div class="top-right">
+                        <div class="current-av">
+                            <img src="" alt="">
+                        </div>
+                        <div class="current-name">
+
+                        </div>
 
                     </div>
                     <div class="chat-box">

@@ -2,6 +2,7 @@ var app = new Vue({
     el : '#root',
     data : {
         myAvatar: 'imgs/me.png',
+        current: {},
         contacts: [
                     {
                         name: 'Michele',
@@ -89,7 +90,9 @@ var app = new Vue({
                 ]
             },
             methods: {
-                getUser() {
+                getUser(obj) {
+                    this.current = obj
+                    console.log(this.current)
                 }
             }
 });

@@ -136,14 +136,15 @@ a {
     height: 100%;
 }
 
-.contacts li::after {
+.contacts .contact::after {
     clear: both;
     display: table;
     content: '';
 }
 
-.contacts li: {
+.contacts .contact: {
     cursor: pointer;
+    height: 100%;
 }
 
 /* USER PART */
