@@ -12,16 +12,16 @@
 .container::after, .container::before {
     width: 100%;
     content: '';
-    position: absolute;
+    display: block;
 }
 
-.container::after {
+.container::before {
     height: 20%;
     background-color: #128C7E;
 }
 
-.container::before {
-    height: 100%;
+.container::after {
+    height: 80%;
     background-color: #f7f7f7;
 }
 
@@ -34,4 +34,43 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+}
+
+/* COMMON PART BETWEEN LEFT AND RIGHT WINDOW */
+
+.left-window, .right-window {
+    height: 100%;
+}
+
+.left-window {
+    width: 30%;
+    background-color: yellow;
+}
+
+.right-window {
+    width: 70%;
+    background-color: gold;
+}
+
+/* LEFT PART WINDOW */
+
+#user-part, #notif, #search, .top-right, .bottom-right {
+    height: 10%;
+    border: 1px solid black;
+    width: 100%;
+}
+
+#contacts {
+    height: 70%;
+    width: 100%;
+    background-color: white;
+}
+
+/* RIGHT PART WINDOW */
+
+.chat-box {
+    height: 80%;
+    width: 100%;
+    background-image: url(https://i.imgur.com/TnNwdvV.png);
 }
