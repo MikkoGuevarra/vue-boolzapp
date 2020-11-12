@@ -23,27 +23,20 @@
 
                     </div>
                     <div id="contacts">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, itaque distinctio veritatis et adipisci quo unde. Suscipit ad fuga, consectetur minima totam provident? Ea atque sunt, dolores obcaecati voluptate, sint.</div>
-                        <div>Architecto unde alias, labore neque blanditiis autem voluptatibus, quod ex laborum tempora modi tenetur sed magnam, incidunt sint aut cumque quisquam dicta fugiat. Cumque eligendi voluptates rerum pariatur eum, explicabo.</div>
-                        <div>Quod labore earum, possimus laudantium dolor ut repellat iure, officiis dolorem porro commodi similique aut. Facere libero eius, saepe delectus iure esse consequuntur alias cumque, omnis voluptate itaque consectetur dicta.</div>
-                        <div>Doloribus delectus architecto dolorem cupiditate aspernatur reiciendis vero alias velit est blanditiis dolor maxime eius tempore veniam, quidem placeat? Consequatur aut tempore quod. Placeat excepturi iusto, possimus sint debitis quisquam!</div>
-                        <div>Atque fugit accusamus praesentium dolorem ducimus nobis doloremque, error iure dolor? Excepturi autem debitis quas fuga dicta hic ipsam inventore fugit maxime ullam iste nostrum dolorum suscipit, iusto, reprehenderit. Nisi.</div>
-                        <div>Aspernatur ducimus omnis, quaerat architecto necessitatibus quisquam mollitia dicta saepe minus esse ipsum commodi repellendus quae qui expedita itaque laboriosam, suscipit. Quia, illo numquam temporibus quasi vel, saepe culpa ut?</div>
-                        <div>Doloribus in alias unde aliquam dicta. Cumque animi libero hic cum ex eaque expedita iusto laborum porro magnam. Asperiores quasi ipsum dicta praesentium, perspiciatis cumque reiciendis maiores corporis eligendi distinctio.</div>
-                        <div>Blanditiis quia provident praesentium sed sunt voluptas ex libero corporis a nesciunt, illum est molestiae, sit nostrum ab? Laboriosam sunt veritatis, accusamus illo facere aut nobis, vel earum nesciunt. Dolore?</div>
-                        <div>Quisquam illo voluptatibus quibusdam magnam vel non. Incidunt laboriosam cum ullam, earum debitis facilis illum possimus. Illo, debitis commodi cum, iste deleniti cumque quidem reiciendis iusto fuga vel minima eveniet.</div>
-                        <div>Sit debitis iure omnis culpa ea repudiandae quidem harum magnam autem nam, praesentium ducimus cumque quisquam accusamus vel, dignissimos nemo fuga optio repellendus. Atque non id nihil quia magni suscipit!</div>
-                        <div>Quam omnis placeat dolorum inventore dignissimos, aperiam necessitatibus sint, officiis deleniti veniam blanditiis vero aliquid ad ex! Optio, repellat nobis, assumenda vero voluptate ducimus illo enim, provident vitae quos nesciunt.</div>
-                        <div>Non maxime sunt, quia reprehenderit pariatur qui quis nisi tenetur debitis, earum nobis ex minima veniam maiores magni, consectetur molestiae! Architecto excepturi facilis id consectetur et repudiandae adipisci deleniti maxime.</div>
-                        <div>Porro rem eaque accusantium, aliquam voluptatum. Tenetur delectus non maiores quidem tempore aut laudantium magnam similique explicabo dignissimos voluptatibus impedit accusantium commodi dolore repellendus quisquam, amet rem, beatae. Rerum, autem!</div>
-                        <div>Animi aperiam molestiae nemo doloremque, saepe fuga non eum alias voluptatibus modi quibusdam quos pariatur, accusantium officiis veritatis reprehenderit exercitationem commodi voluptatem similique natus voluptatum minus sint! Ipsam possimus, tempore.</div>
-                        <div>Nobis unde tempore magni, asperiores autem debitis eius vel dolorum. Quod, suscipit, illum quae similique veniam, neque dolore corporis alias distinctio deleniti quidem repellendus quaerat eligendi debitis rerum quos odit?</div>
-                        <div>Quas quo consectetur asperiores, illum explicabo, aperiam facere impedit dignissimos pariatur hic sit ipsa corporis voluptatem minima in ducimus, praesentium ea, excepturi quasi nulla. Ipsum impedit sequi, vel natus debitis?</div>
-                        <div>Doloremque minima tempore saepe eius maxime doloribus amet ut, ex dolorem debitis quas, velit placeat optio est facere consequatur fuga voluptatibus reprehenderit magni quidem? Fuga, pariatur, eligendi. At, nihil vitae.</div>
-                        <div>Sint velit dolorum, neque aut esse at magni perferendis iure officiis. Soluta rerum sequi blanditiis illo eos dolore labore, iste nobis quidem. Praesentium excepturi beatae, asperiores alias, quidem inventore culpa.</div>
-                        <div>Velit dolor fugiat labore doloribus quos. Id dicta nam perferendis sed vero numquam corporis beatae necessitatibus modi cupiditate rerum, sint commodi ad repellendus quidem rem autem animi ducimus exercitationem placeat!</div>
-                        <div>Amet possimus mollitia asperiores iste, at error illum sed commodi. Tempore ullam quos iure in aut, quaerat magni culpa. Labore tempora ducimus doloribus quaerat corrupti temporibus at, molestiae nesciunt accusamus.</div>
+                        <ul>
+                            <li v-for="(object, index) in contacts">
+                                <div class="left-list">
+                                    <img :src="object.avatar" alt="">
+                                </div>
+                                <div class="right-list">
+                                    <p>
+                                        <strong>{{object.name}}</strong>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet,</p>
 
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
 
