@@ -63,7 +63,7 @@ a {
 
 /* LEFT PART WINDOW */
 
-#user-part, #notif, #search, .top-right, .bottom-right {
+#user-part, #notif, .top-right, .bottom-right {
     height: 10%;
     border: 1px solid black;
     width: 100%;
@@ -182,14 +182,13 @@ a {
     display: flex;
 }
 
-.left-notif {
+.left-notif, .left-search {
     width: 20%;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding-left: 20px;
 }
 
-.right-notif {
+.right-notif, .right-search {
     width: 80%;
     flex-direction: column;
     justify-content: center;
@@ -206,4 +205,23 @@ a {
 
 #notif a {
     color: grey;
+}
+
+/* SEARCH */
+
+#search {
+    height: 5%;
+}
+
+#search, .left-search, .right-search  {
+    display: flex;
+}
+
+.right-search input {
+    padding: 7px 5px;
+    width: 100%;
+}
+
+.left-search i {
+    cursor: pointer;
 }
