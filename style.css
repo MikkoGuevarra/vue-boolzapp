@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    position: relative;
+}
+
+.container::after, .container::before {
+    width: 100%;
+    content: '';
+    position: absolute;
+}
+
+.container::after {
+    height: 20%;
+    background-color: #128C7E;
+}
+
+.container::before {
+    height: 100%;
+    background-color: #f7f7f7;
+}
+
+.window-app {
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
