@@ -84,6 +84,33 @@ a {
     overflow-y: scroll;
 }
 
+.chat-box .message:first-child {
+    margin-top: 30px;
+}
+
+/* CHATBOX */
+
+.message {
+    max-width: 300px;
+    padding: 15px;
+    border: 1px solid black;
+    clear: both;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.sent {
+    background-color: #DCF8C6;
+    float: right;
+    margin-right: 50px;
+}
+
+.received {
+    background-color: #fefefe;
+    float: left;
+    margin-left: 50px;
+}
+
 /* CONTACTS PART */
 .right-list {
     width: calc(100% - 70px);
