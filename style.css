@@ -142,8 +142,8 @@ a {
     content: '';
 }
 
-.contacts li:hover {
-    background-color: grey;
+.contacts li: {
+    cursor: pointer;
 }
 
 /* USER PART */
@@ -182,13 +182,13 @@ a {
     display: flex;
 }
 
-.left-notif, .left-search {
+.left-notif {
     width: 20%;
     justify-content: center;
     align-items: center;
 }
 
-.right-notif, .right-search {
+.right-notif {
     width: 80%;
     flex-direction: column;
     justify-content: center;
@@ -211,17 +211,19 @@ a {
 
 #search {
     height: 5%;
-}
-
-#search, .left-search, .right-search  {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 
-.right-search input {
-    padding: 7px 5px;
+#search input {
+    border: none;
+    padding: 10px;
     width: 100%;
 }
 
-.left-search i {
-    cursor: pointer;
+#search i {
+    margin: 0 30px;
 }

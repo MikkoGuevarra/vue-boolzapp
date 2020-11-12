@@ -87,5 +87,9 @@ var app = new Vue({
                             ],
                     },
                 ]
+            },
+            methods: {
+                getUser() {
+                }
             }
 });
