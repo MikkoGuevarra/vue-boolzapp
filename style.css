@@ -8,6 +8,10 @@ ul {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     height: 100vh;
     position: relative;
@@ -49,7 +53,7 @@ ul {
 
 .left-window {
     width: 30%;
-    background-color: yellow;
+    background-color: #fefefe;
 }
 
 .right-window {
@@ -68,9 +72,7 @@ ul {
 #contacts {
     height: 70%;
     width: 100%;
-    background-color: white;
     overflow-y: scroll;
-
 }
 
 /* RIGHT PART WINDOW */
@@ -111,4 +113,70 @@ ul {
     clear: both;
     display: table;
     content: '';
+}
+
+.contacts li:hover {
+    background-color: grey;
+}
+
+/* USER PART */
+
+#user-part img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#user-part {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eeeeee;
+}
+
+.right-user {
+    display: flex;
+    align-items: center;
+}
+
+.right-user i{
+    margin: 0 8px;
+    cursor: pointer;
+    color: #747474;
+}
+
+/* NOTIFICASIONS */
+
+#notif {
+    background-color: #33b5efbf;
+    display: flex;
+}
+
+.left-notif, .right-notif {
+    display: flex;
+}
+
+.left-notif {
+    width: 20%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.right-notif {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.fa-bell-slash {
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 5px;
+    background-color: white;
+    color: #33b5efbf
+}
+
+#notif a {
+    color: grey;
 }
