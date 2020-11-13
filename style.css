@@ -56,11 +56,6 @@ a {
     background-color: #fefefe;
 }
 
-.right-window {
-    width: 70%;
-    background-color: gold;
-}
-
 /* LEFT PART WINDOW */
 
 #user-part, #notif, .top-right, .bottom-right {
@@ -149,7 +144,7 @@ a {
 
 /* USER PART */
 
-#user-part img {
+#user-part img, .current-av img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -227,4 +222,56 @@ a {
 
 #search i {
     margin: 0 30px;
+}
+
+/* RIGHT WINDOW TOP PART */
+
+.right-window {
+    width: 70%;
+    background-color: gold;
+}
+
+.current-av {
+    width: 12%;
+    float: left;
+}
+
+.current-av img {
+    max-width: 70px;
+}
+
+.current-name {
+    height: 100%;
+    width: 85%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.current-name p {
+    display: none;
+}
+
+.top-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-side {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side {
+    width: 20%
 }
