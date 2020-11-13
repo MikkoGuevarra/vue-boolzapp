@@ -69,7 +69,7 @@
                             </div>
                             <div class="current-name">
                                 {{current.name}}
-                                <p>Ultimo accesso oggi alle 12.40</p>
+                                <p :class="current.visibile = !current.visible ? '' : 'active'">Ultimo accesso oggi alle 12.40</p>
                             </div>
                         </div>
                         <div class="right-side">

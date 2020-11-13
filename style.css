@@ -267,6 +267,10 @@ a {
     display: none;
 }
 
+.current-name .active {
+    display: block;
+}
+
 .top-right {
     display: flex;
     justify-content: space-between;
@@ -303,24 +307,26 @@ a {
     align-items: center;
 
 }
- .center-foot {
-     width: 80%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.center-foot {
+ width: 80%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
 
- .center-foot input {
-     padding: 10px;
-     width: 100%;
-     height: 80%;
- }
+.center-foot input {
+ padding: 10px;
+ width: 100%;
+ height: 80%;
+ border-radius: 5px;
+ border: none;
+}
 
- .bottom-right {
-     display: flex;
-     background-color: #eeeeee;
- }
+.bottom-right {
+ display: flex;
+ background-color: #eeeeee;
+}
 
 .bottom-right i, .right-side i {
     color: #747474;

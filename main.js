@@ -100,14 +100,19 @@ var app = new Vue({
                 ]
             },
             methods: {
+                //creo funzione che quando faccio click mi prende l'oggetto corrente
                 getUser(obj) {
                     this.current = obj;
+                    console.log(obj);
                 },
+                //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
                     this.current.messages.push(this.answer);
                 },
+                //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
                 addMsg(obj) {
-                    this.current.messages.push(obj);
+                    this.current.messages.push(this.newObj);
+                    this.newObj.message = '';
                     setTimeout(() => {
                         this.autoAnswer();
                     }
