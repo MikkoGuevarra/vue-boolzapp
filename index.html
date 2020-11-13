@@ -16,9 +16,9 @@
                             <img :src="myAvatar" alt="">
                         </div>
                         <div class="right-user">
-                            <i class="fas fa-circle-notch fa-2x"></i>
-                            <i class="fas fa-comment-alt  fa-2x"></i>
-                            <i class="fas fa-ellipsis-v  fa-2x"></i>
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
                     <div id="notif">
@@ -68,10 +68,9 @@
                             </div>
                         </div>
                         <div class="right-side">
-                            <i class="fas fa-search fa-2x"></i>
-                            <i class="fas fa-paperclip fa-2x"></i>
-                            <i class="fas fa-ellipsis-v  fa-2x"></i>
-
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                         </div>
 
                     </div>
@@ -79,7 +78,18 @@
                         <div  v-for="msg in current.messages" class="message"
                         :class="msg.status">{{msg.message}}</div>
                     </div>
-                    <div class="bottom-right"></div>
+                    <div class="bottom-right">
+                        <div class="left-foot">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <div class="center-foot">
+                            <input type="text" placeholder="Scrivi un messaggio">
+
+                        </div>
+                        <div class="right-foot">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
 
                 </div>
 

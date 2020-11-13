@@ -36,7 +36,7 @@ a {
 .window-app {
     width: 90%;
     height: 90%;
-    border: 2px solid black;
+    border: 2px solid #eeeeee;
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -58,25 +58,23 @@ a {
 
 /* LEFT PART WINDOW */
 
-#user-part, #notif, .top-right, .bottom-right {
+#user-part, #notif, .top-right {
     height: 10%;
-    border: 1px solid black;
     width: 100%;
 }
 
-#contacts {
-    height: 70%;
-    width: 100%;
-    overflow-y: scroll;
+#user-part {
+    border-right: 1px solid gray;
 }
+
 
 /* RIGHT PART WINDOW */
 
 .chat-box {
-    height: 80%;
+    height: 85%;
     width: 100%;
     background-image: url(https://i.imgur.com/TnNwdvV.png);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .chat-box .message:first-child {
@@ -88,7 +86,6 @@ a {
 .message {
     max-width: 300px;
     padding: 15px;
-    border: 1px solid black;
     clear: both;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -109,7 +106,6 @@ a {
 /* CONTACTS PART */
 .right-list {
     width: calc(100% - 70px);
-    border: 1px solid black;
     height: 70px;
     float: left;
     display: flex;
@@ -122,7 +118,6 @@ a {
     float: left;
     width: 70px;
     height: 70px;
-    border: 1px solid black;
 }
 
 .left-list img {
@@ -131,15 +126,26 @@ a {
     height: 100%;
 }
 
-.contacts .contact::after {
+#contacts .contact::after {
     clear: both;
     display: table;
     content: '';
 }
 
-.contacts .contact: {
+#contacts .contact {
     cursor: pointer;
-    height: 100%;
+    border-bottom: 1px solid gray;
+}
+
+#contacts .contact:hover {
+    background-color: gray;
+}
+
+
+#contacts {
+    height: 75%;
+    width: 100%;
+    overflow-y: auto;
 }
 
 /* USER PART */
@@ -165,6 +171,7 @@ a {
     margin: 0 8px;
     cursor: pointer;
     color: #747474;
+    font-size: 25px;
 }
 
 /* NOTIFICASIONS */
@@ -228,7 +235,7 @@ a {
 
 .right-window {
     width: 70%;
-    background-color: gold;
+    background-color: #eeeeee;
 }
 
 .current-av {
@@ -265,6 +272,10 @@ a {
     justify-content: space-around;
 }
 
+.right-side i {
+    font-size: 25px;
+}
+
 .left-side {
     width: 80%;
     display: flex;
@@ -274,4 +285,43 @@ a {
 
 .right-side {
     width: 20%
+}
+
+/* BOTTOM RIGHT */
+
+.left-foot, .right-foot {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+ .center-foot {
+     width: 80%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .center-foot input {
+     padding: 10px;
+     width: 100%;
+     height: 80%;
+ }
+
+ .bottom-right {
+     display: flex;
+     background-color: #eeeeee;
+ }
+
+.bottom-right i, .right-side i {
+    color: #747474;
+    cursor: pointer;
+}
+
+.bottom-right {
+    height: 5%;
+    width: 100%;
 }

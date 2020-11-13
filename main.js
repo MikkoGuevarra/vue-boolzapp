@@ -91,8 +91,7 @@ var app = new Vue({
             },
             methods: {
                 getUser(obj) {
-                    this.current = obj
-                    console.log(this.current)
+                    this.current = obj;
                 }
             }
 });
