@@ -3,11 +3,7 @@ var app = new Vue({
     data : {
         myAvatar: 'imgs/me.png',
         current: {},
-        newObj: {
-            date: '10/01/2020 15:30:55',
-            message: '',
-            status: 'sent'
-        },
+        newMess: '',
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
@@ -110,9 +106,21 @@ var app = new Vue({
                     this.current.messages.push(this.answer);
                 },
                 //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
-                addMsg(obj) {
-                    this.current.messages.push(this.newObj);
-                    this.newObj.message = '';
+                addMsg(newObj) {
+                    //creo nuova variabile per il nuovo mess
+                    var newObj= {
+                        date: '10/01/2020 15:30:55',
+                        message: '',
+                        status: 'sent'
+                    };
+                    //assoccio il nuovo mess all'oggetto
+                    newObj.message = this.newMess;
+                    //faccio push del nuovo oggetto all'oggetto corrente selezionato
+                    this.current.messages.push(newObj);
+                    //svuoto l'input
+                    this.newMess = '';
+                    console.log(newObj);
+                    // creo time out after 1sec risposta automatica
                     setTimeout(() => {
                         this.autoAnswer();
                     }
