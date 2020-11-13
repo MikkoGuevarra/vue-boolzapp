@@ -67,6 +67,12 @@ a {
     border-right: 1px solid gray;
 }
 
+#username {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* RIGHT PART WINDOW */
 

@@ -3,6 +3,11 @@ var app = new Vue({
     data : {
         myAvatar: 'imgs/me.png',
         current: {},
+        newObj: {
+            date: '10/01/2020 15:30:55',
+            message: '',
+            status: 'sent'
+        },
         contacts: [
                     {
                         name: 'Michele',
@@ -92,6 +97,9 @@ var app = new Vue({
             methods: {
                 getUser(obj) {
                     this.current = obj;
+                },
+                addMsg(obj) {
+                    this.current.messages.push(obj);
                 }
             }
 });
