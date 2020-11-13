@@ -8,6 +8,11 @@ var app = new Vue({
             message: '',
             status: 'sent'
         },
+        answer: {
+            date: '10/01/2020 15:30:55',
+            message: 'ok',
+            status: 'received'
+        },
         contacts: [
                     {
                         name: 'Michele',
@@ -98,8 +103,15 @@ var app = new Vue({
                 getUser(obj) {
                     this.current = obj;
                 },
+                autoAnswer() {
+                    this.current.messages.push(this.answer);
+                },
                 addMsg(obj) {
                     this.current.messages.push(obj);
+                    setTimeout(() => {
+                        this.autoAnswer();
+                    }
+                    , 1000);
                 }
-            }
+            },
 });
