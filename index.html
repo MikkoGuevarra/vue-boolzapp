@@ -43,10 +43,10 @@
                     </div>
                     <div id="search">
                         <i class="fas fa-search"></i>
-                        <input class="fontawesome" type="search" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div id="contacts">
-                        <div @click="getUser(object)" class="contact" v-for="(object, index) in contacts">
+                        <div @click="getUser(object)" class="contact" v-for="(object, index) in filteredNames">
                             <div class="left-list">
                                 <img :src="object.avatar" alt="">
                             </div>

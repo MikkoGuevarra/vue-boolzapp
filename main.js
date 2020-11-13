@@ -4,6 +4,7 @@ var app = new Vue({
         myAvatar: 'imgs/me.png',
         current: {},
         newMess: '',
+        search: '',
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
@@ -127,4 +128,14 @@ var app = new Vue({
                     , 1000);
                 }
             },
+            //faccio ricerca, creo funzione che mi filtra i nomi
+            //usando il v-for usato per i nomi correnti
+            //trasformo i nomi e il search tutto in minuscolo per facilitare la ricerca
+            computed: {
+                filteredNames() {
+                  return this.contacts.filter((object) => {
+                      return object.name.toLowerCase().match(this.search.toLowerCase())
+                  })
+                }
+              }
 });
