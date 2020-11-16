@@ -7,8 +7,8 @@ var app = new Vue({
         newMess: '',
         search: '',
         viewWin: false,
-        isClicked: true,
         selectedMsg: null,
+        msgIndex: 0,
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
@@ -105,8 +105,8 @@ var app = new Vue({
                 getUser(obj, i) {
                     this.current = obj;
                     this.currentIndex = i;
-                    console.log(i);
-                    console.log(obj);
+                    // console.log(i);
+                    // console.log(obj);
                 },
                 //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
@@ -133,12 +133,17 @@ var app = new Vue({
                     }
                     , 1000);
                 },
-                view(selectedMsg) {
+                view(selectedMsg, msgIndex) {
                     this.selectedMsg = selectedMsg;
                     console.log(selectedMsg);
-                    console.log(this.current.messages);
-                    this.viewWin = !this.viewWin;
+                    // console.log(this.contacts[this.currentIndex].messages);
+                    console.log(msgIndex);
+                    console.log(this.contacts[this.currentIndex].messages[msgIndex]);
+                    if (selectedMsg == (this.contacts[this.currentIndex].messages[msgIndex])) {
+                        this.viewWin = !this.viewWin;
+                    }
                 }
+
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
             //usando il v-for usato per i nomi correnti
