@@ -46,7 +46,8 @@
                         <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div id="contacts">
-                        <div @click="getUser(object)" class="contact" v-for="(object, index) in filteredNames">
+                        <div @click="getUser(object, index)" class="contact" v-for="(object, index) in filteredNames"
+                        :class="currentIndex == index ? 'colored' : ''">
                             <div class="left-list">
                                 <img :src="object.avatar" alt="">
                             </div>
@@ -65,11 +66,11 @@
                     <div class="top-right">
                         <div class="left-side">
                             <div class="current-av">
-                                <img :src="current.avatar" alt="">
+                                <img :src="contacts[currentIndex].avatar" alt="">
                             </div>
                             <div class="current-name">
-                                {{current.name}}
-                                <p :class="current.visibile = !current.visible ? '' : 'active'">Ultimo accesso oggi alle 12.40</p>
+                                {{contacts[currentIndex].name}}
+                                <p>Ultimo accesso oggi alle 12.40</p>
                             </div>
                         </div>
                         <div class="right-side">
@@ -80,8 +81,14 @@
 
                     </div>
                     <div class="chat-box">
-                        <div  v-for="msg in current.messages" class="message"
-                        :class="msg.status">{{msg.message}}</div>
+                        <div  @click="view(msg.message)" v-for="msg in contacts[currentIndex].messages" class="message"
+                        :class="msg.status">
+                            {{msg.message}}
+                            <div class="win" :class="{ active: viewWin }">
+                                <p>Message info</p>
+                                <p>Delete message</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="bottom-right">
                         <div class="left-foot">

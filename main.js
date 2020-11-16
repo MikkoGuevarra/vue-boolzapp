@@ -3,8 +3,12 @@ var app = new Vue({
     data : {
         myAvatar: 'imgs/me.png',
         current: {},
+        currentIndex: 0,
         newMess: '',
         search: '',
+        viewWin: false,
+        isClicked: true,
+        selectedMsg: null,
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
@@ -98,13 +102,15 @@ var app = new Vue({
             },
             methods: {
                 //creo funzione che quando faccio click mi prende l'oggetto corrente
-                getUser(obj) {
+                getUser(obj, i) {
                     this.current = obj;
+                    this.currentIndex = i;
+                    console.log(i);
                     console.log(obj);
                 },
                 //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
-                    this.current.messages.push(this.answer);
+                    this.contacts[this.currentIndex].messages.push(this.answer);
                 },
                 //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
                 addMsg(newObj) {
@@ -117,7 +123,7 @@ var app = new Vue({
                     //assoccio il nuovo mess all'oggetto
                     newObj.message = this.newMess;
                     //faccio push del nuovo oggetto all'oggetto corrente selezionato
-                    this.current.messages.push(newObj);
+                    this.contacts[this.currentIndex].messages.push(newObj);
                     //svuoto l'input
                     this.newMess = '';
                     console.log(newObj);
@@ -126,6 +132,12 @@ var app = new Vue({
                         this.autoAnswer();
                     }
                     , 1000);
+                },
+                view(selectedMsg) {
+                    this.selectedMsg = selectedMsg;
+                    console.log(selectedMsg);
+                    console.log(this.current.messages);
+                    this.viewWin = !this.viewWin;
                 }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
