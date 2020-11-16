@@ -6,13 +6,13 @@ var app = new Vue({
         currentIndex: 0,
         newMess: '',
         search: '',
-        viewWin: false,
         selectedMsg: null,
         msgIndex: 0,
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
-            status: 'received'
+            status: 'received',
+            isActive: false
         },
         contacts: [
                     {
@@ -23,17 +23,20 @@ var app = new Vue({
                                 {
                                     date: '10/01/2020 15:30:55',
                                     message: 'Hai portato a spasso il cane?',
-                                    status: 'sent'
+                                    status: 'sent',
+                                    isActive: false
                                 },
                                 {
                                     date: '10/01/2020 15:50:00',
                                     message: 'Ricordati di dargli da mangiare',
-                                    status: 'sent'
+                                    status: 'sent',
+                                    isActive: false
                                 },
                                 {
                                     date: '10/01/2020 16:15:22',
                                     message: 'Tutto fatto!',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 }
                             ],
                     },
@@ -45,17 +48,20 @@ var app = new Vue({
                                 {
                                     date: '20/03/2020 16:30:00',
                                     message: 'Ciao come stai?',
-                                    status: 'sent'
+                                    status: 'sent',
+                                    isActive: false
                                 },
                                 {
                                     date: '20/03/2020 16:30:55',
                                     message: 'Bene grazie! Stasera ci vediamo?',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 },
                                 {
                                     date: '20/03/2020 16:35:00',
                                     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 }
                             ],
                     },
@@ -67,17 +73,20 @@ var app = new Vue({
                                 {
                                     date: '28/03/2020 10:10:40',
                                     message: 'La Marianna va in campagna',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 },
                                 {
                                     date: '28/03/2020 10:20:10',
                                     message: 'Sicuro di non aver sbagliato chat?',
-                                    status: 'sent'
+                                    status: 'sent',
+                                    isActive: false
                                 },
                                 {
                                     date: '28/03/2020 16:15:22',
                                     message: 'Ah scusa!',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 }
                             ],
                     },
@@ -89,12 +98,14 @@ var app = new Vue({
                                 {
                                     date: '10/01/2020 15:30:55',
                                     message: 'Lo sai che ha aperto una nuova pizzeria?',
-                                    status: 'sent'
+                                    status: 'sent',
+                                    isActive: false
                                 },
                                 {
                                     date: '10/01/2020 15:50:00',
                                     message: 'Si, ma preferirei andare al cinema',
-                                    status: 'received'
+                                    status: 'received',
+                                    isActive: false
                                 }
                             ],
                     },
@@ -118,7 +129,8 @@ var app = new Vue({
                     var newObj= {
                         date: '10/01/2020 15:30:55',
                         message: '',
-                        status: 'sent'
+                        status: 'sent',
+                        isActive: false
                     };
                     //assoccio il nuovo mess all'oggetto
                     newObj.message = this.newMess;
@@ -126,7 +138,7 @@ var app = new Vue({
                     this.contacts[this.currentIndex].messages.push(newObj);
                     //svuoto l'input
                     this.newMess = '';
-                    console.log(newObj);
+                    // console.log(newObj);
                     // creo time out after 1sec risposta automatica
                     setTimeout(() => {
                         this.autoAnswer();
@@ -135,15 +147,18 @@ var app = new Vue({
                 },
                 view(selectedMsg, msgIndex) {
                     this.selectedMsg = selectedMsg;
-                    console.log(selectedMsg);
-                    // console.log(this.contacts[this.currentIndex].messages);
-                    console.log(msgIndex);
-                    console.log(this.contacts[this.currentIndex].messages[msgIndex]);
-                    if (selectedMsg == (this.contacts[this.currentIndex].messages[msgIndex])) {
-                        this.viewWin = !this.viewWin;
+                    // console.log(selectedMsg);
+                    if(this.contacts[this.currentIndex].messages[msgIndex].isActive == false)
+                    {
+                        this.contacts[this.currentIndex].messages[msgIndex].isActive = true;
+                    } else {
+                        this.contacts[this.currentIndex].messages[msgIndex].isActive = false;
                     }
-                }
+                },
+                removeMsg(msgIndex) {
+                    this.contacts[this.currentIndex].messages.splice(msgIndex, 1);
 
+                }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
             //usando il v-for usato per i nomi correnti

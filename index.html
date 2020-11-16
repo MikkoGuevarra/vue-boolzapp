@@ -84,9 +84,9 @@
                         <div  @click="view(msg, index)" v-for="(msg, index) in contacts[currentIndex].messages" class="message"
                         :class="msg.status">
                             {{msg.message}}
-                            <div class="win" :class="{ active: viewWin }">
+                            <div class="win" :class="(msg.isActive) ? 'active' : 'not-active'">
                                 <p>Message info</p>
-                                <p>Delete message</p>
+                                <p @click="removeMsg(index)">Delete message</p>
                             </div>
                         </div>
                     </div>

@@ -124,7 +124,6 @@ a {
     align-items: center;
     flex-wrap: nowrap;
     padding: 10px 0;
-    display: none;
 }
 
 .win p {
@@ -134,8 +133,12 @@ a {
 
 .win.active {
     display: block;
+    display: flex;
 }
 
+.win.not-active{
+    display: none;
+}
 
 /* CONTACTS PART */
 .right-list {
