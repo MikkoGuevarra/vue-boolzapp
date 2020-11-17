@@ -165,6 +165,10 @@ var app = new Vue({
                         let chatContainer = document.getElementsByClassName('chat-box')[0];
                         chatContainer.scrollTop = chatContainer.scrollHeight;
                     })
+                },
+                getDate(date, msgIndex) {
+                    dayjs(this.contacts[this.currentIndex].messages[msgIndex].date).format('YYYY' + ' MM');
+                    console.log(    dayjs(this.contacts[this.currentIndex].messages[msgIndex].date).format('YYYY' + ' MM'));
                 }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
@@ -173,11 +177,12 @@ var app = new Vue({
             computed: {
                 filteredNames() {
                   return this.contacts.filter((object) => {
-                      return object.name.toLowerCase().match(this.search.toLowerCase())
+                      return object.name.toLowerCase().match(this.search.toLowerCase());
                   })
                 }
             },
             mounted: function(){
                 this.scroll();
+                // console.log(dayjs(this.answer.date).format('YYYY' + ' MM' + ' DD'));
             }
 });
