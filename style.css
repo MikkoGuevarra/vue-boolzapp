@@ -59,7 +59,7 @@ a {
 /* LEFT PART WINDOW */
 
 #user-part, #notif, .top-right {
-    height: 10%;
+    /* height: 10%; */
     width: 100%;
 }
 
@@ -254,7 +254,7 @@ a {
 /* SEARCH */
 
 #search {
-    height: 5%;
+    /* height: 5%; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
