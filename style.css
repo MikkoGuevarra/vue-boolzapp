@@ -83,6 +83,13 @@ a {
     overflow-y: auto;
 }
 
+#time{
+    position: absolute;
+    font-size: 12px;
+    text-align: right;
+    right: 5px;
+}
+
 .chat-box .message:first-child {
     margin-top: 30px;
 }

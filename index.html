@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Boolzapp</title>
+        <link rel="icon" href="imgs/favicon.png" type="image/png">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/dayjs.min.js" integrity="sha512-C2m821NxMpJ4Df47O4P/17VPqt0yiK10UmGl59/e5ynRRYiCSBvy0KHJjhp2XIjUJreuR+y3SIhVyiVilhCmcQ==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/plugin/customParseFormat.min.js" integrity="sha512-vAkK3r73UUkIPKpHGCp7Rhpt/xptuKZpavqwaCrDwjmbgPdqBlWZuFnLvAoN7jigf6Hg5NjZmZZM1xqJaiZfsQ==" crossorigin="anonymous"></script>
@@ -86,7 +87,7 @@
                         <div  @click="view(index)" v-for="(msg, index) in contacts[currentIndex].messages" class="message"
                         :class="msg.status">
                             {{msg.message}}
-                            <p>{{getDate(msg.date)}}</p>
+                            <p id="time">{{getDate(msg.date)}}</p>
                             <div class="win" :class="(contacts[currentIndex].messages[index].isActive) ? 'active' : 'not-active'">
                                 <p>Message info</p>
                                 <p @click="removeMsg(index)">Delete message</p>

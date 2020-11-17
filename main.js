@@ -45,19 +45,19 @@ var app = new Vue({
                         visible: true,
                         messages: [
                                 {
-                                    date: '20/03/2020 16:30:00',
+                                    date: '10/03/2020 16:30:00',
                                     message: 'Ciao come stai?',
                                     status: 'sent',
                                     isActive: false
                                 },
                                 {
-                                    date: '20/03/2020 16:30:55',
+                                    date: '10/03/2020 16:30:55',
                                     message: 'Bene grazie! Stasera ci vediamo?',
                                     status: 'received',
                                     isActive: false
                                 },
                                 {
-                                    date: '20/03/2020 16:35:00',
+                                    date: '08/03/2020 16:35:00',
                                     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                                     status: 'received',
                                     isActive: false
@@ -167,13 +167,13 @@ var app = new Vue({
                     })
                 },
                 getDate(date) {
-                    dayjs(date).format('YYYY');
+                    return dayjs(date, 'DD/MM/YYYY', true).format('MMM' + ' H' + ':m');
                 },
                 searchName() {
 
                     //creo, salvo e trasformo variabile tutto in lowercase
                     var searchedLowered = this.search.toLowerCase();
-                    console.log(searchedLowered);
+                    // console.log(searchedLowered);
 
                     //check di tutto contacts
                      this.contacts.forEach((item) => {
@@ -181,7 +181,7 @@ var app = new Vue({
 
                         //creo , salvo e trasformo variabile del item. name into lowercase
                          var loweredName = item.name.toLowerCase();
-                         console.log(loweredName);
+                         // console.log(loweredName);
 
                          //check se item.name include la ricerca utente
                          if (loweredName.includes(searchedLowered)) {
@@ -194,7 +194,7 @@ var app = new Vue({
                              //then im gonna check v-if into the list
                              //if visibile is true then its going to show me the name with that search input
                          }
-                         console.log(item.visible);
+                         // console.log(item.visible);
 
                      });
 
