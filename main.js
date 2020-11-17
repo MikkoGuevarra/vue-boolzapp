@@ -168,20 +168,50 @@ var app = new Vue({
                 },
                 getDate(date) {
                     dayjs(date).format('YYYY');
+                },
+                searchName() {
+
+                    //creo, salvo e trasformo variabile tutto in lowercase
+                    var searchedLowered = this.search.toLowerCase();
+                    console.log(searchedLowered);
+
+                    //check di tutto contacts
+                     this.contacts.forEach((item) => {
+                         // console.log(item.name);
+
+                        //creo , salvo e trasformo variabile del item. name into lowercase
+                         var loweredName = item.name.toLowerCase();
+                         console.log(loweredName);
+
+                         //check se item.name include la ricerca utente
+                         if (loweredName.includes(searchedLowered)) {
+                             //if includes makes item.visible true
+                             item.visible = true;
+                         } else {
+                             //if does not include it makes false
+                             item.visible = false;
+
+                             //then im gonna check v-if into the list
+                             //if visibile is true then its going to show me the name with that search input
+                         }
+                         console.log(item.visible);
+
+                     });
+
                 }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
             //usando il v-for usato per i nomi correnti
             //trasformo i nomi e il search tutto in minuscolo per facilitare la ricerca
-            computed: {
-                filteredNames() {
-                  return this.contacts.filter((object) => {
-                      return object.name.toLowerCase().match(this.search.toLowerCase());
-                      if (!this.search) return null;
-
-                  })
-                }
-            },
+            // computed: {
+            //     filteredNames() {
+            //       return this.contacts.filter((object) => {
+            //           return object.name.toLowerCase().match(this.search.toLowerCase());
+            //           if (!this.search) return null;
+            //
+            //       })
+            //     }
+            // },
             mounted: function(){
                 this.scroll();
                 // console.log(dayjs(this.answer.date).format('YYYY' + ' MM' + ' DD'));

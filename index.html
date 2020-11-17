@@ -45,10 +45,10 @@
                     </div>
                     <div id="search">
                         <i class="fas fa-search"></i>
-                        <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="search" type="text" @keyup="searchName" name="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div id="contacts">
-                        <div @click="getUser(object, index)" class="contact" v-for="(object, index) in filteredNames"
+                        <div @click="getUser(object, index)" v-if="object.visible" class="contact" v-for="(object, index) in contacts"
                         :class="currentIndex == index ? 'colored' : ''">
                             <div class="left-list">
                                 <img :src="object.avatar" alt="">
@@ -71,7 +71,7 @@
                                 <img :src="contacts[currentIndex].avatar" alt="">
                             </div>
                             <div class="current-name">
-                                {{filteredNames[currentIndex].name}}
+                                {{contacts[currentIndex].name}}
                                 <p>Ultimo accesso oggi alle 12.40</p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
 
                     </div>
                     <div class="chat-box">
-                        <div  @click="view(index)" v-for="(msg, index) in filteredNames[currentIndex].messages" class="message"
+                        <div  @click="view(index)" v-for="(msg, index) in contacts[currentIndex].messages" class="message"
                         :class="msg.status">
                             {{msg.message}}
                             <p>{{getDate(msg.date)}}</p>
