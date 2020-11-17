@@ -166,9 +166,8 @@ var app = new Vue({
                         chatContainer.scrollTop = chatContainer.scrollHeight;
                     })
                 },
-                getDate(date, msgIndex) {
-                    dayjs(this.contacts[this.currentIndex].messages[msgIndex].date).format('YYYY' + ' MM');
-                    console.log(    dayjs(this.contacts[this.currentIndex].messages[msgIndex].date).format('YYYY' + ' MM'));
+                getDate(date) {
+                    dayjs(date).format('YYYY');
                 }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
@@ -178,6 +177,8 @@ var app = new Vue({
                 filteredNames() {
                   return this.contacts.filter((object) => {
                       return object.name.toLowerCase().match(this.search.toLowerCase());
+                      if (!this.search) return null;
+
                   })
                 }
             },

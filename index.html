@@ -86,7 +86,7 @@
                         <div  @click="view(index)" v-for="(msg, index) in filteredNames[currentIndex].messages" class="message"
                         :class="msg.status">
                             {{msg.message}}
-                            <p>{{getDate(msg.date, index)}}</p>
+                            <p>{{getDate(msg.date)}}</p>
                             <div class="win" :class="(contacts[currentIndex].messages[index].isActive) ? 'active' : 'not-active'">
                                 <p>Message info</p>
                                 <p @click="removeMsg(index)">Delete message</p>
