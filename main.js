@@ -7,7 +7,6 @@ var app = new Vue({
         newMess: '',
         search: '',
         selectedMsg: null,
-        msgIndex: 0,
         answer: {
             date: '10/01/2020 15:30:55',
             message: 'ok',
@@ -118,26 +117,27 @@ var app = new Vue({
                     this.currentIndex = i;
                     // console.log(i);
                     // console.log(obj);
+                    this.scroll();
                 },
                 //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
                     this.contacts[this.currentIndex].messages.push(this.answer);
+                    this.scroll();
                 },
                 //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
-                addMsg(newObj) {
+                addMsg() {
                     //creo nuova variabile per il nuovo mess
                     var newObj= {
                         date: '10/01/2020 15:30:55',
-                        message: '',
+                        message: this.newMess,
                         status: 'sent',
                         isActive: false
                     };
-                    //assoccio il nuovo mess all'oggetto
-                    newObj.message = this.newMess;
                     //faccio push del nuovo oggetto all'oggetto corrente selezionato
                     this.contacts[this.currentIndex].messages.push(newObj);
                     //svuoto l'input
                     this.newMess = '';
+                    this.scroll();
                     // console.log(newObj);
                     // creo time out after 1sec risposta automatica
                     setTimeout(() => {
@@ -145,9 +145,10 @@ var app = new Vue({
                     }
                     , 1000);
                 },
-                view(selectedMsg, msgIndex) {
-                    this.selectedMsg = selectedMsg;
+                view(msgIndex) {
+                    // this.selectedMsg = selectedMsg;
                     // console.log(selectedMsg);
+
                     if(this.contacts[this.currentIndex].messages[msgIndex].isActive == false)
                     {
                         this.contacts[this.currentIndex].messages[msgIndex].isActive = true;
@@ -155,9 +156,15 @@ var app = new Vue({
                         this.contacts[this.currentIndex].messages[msgIndex].isActive = false;
                     }
                 },
-                removeMsg(msgIndex) {
-                    this.contacts[this.currentIndex].messages.splice(msgIndex, 1);
+                removeMsg(index) {
+                    this.contacts[this.currentIndex].messages.splice(index, 1);
 
+                },
+                scroll() {
+                    Vue.nextTick(function(){
+                        let chatContainer = document.getElementsByClassName('chat-box')[0];
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                    })
                 }
             },
             //faccio ricerca, creo funzione che mi filtra i nomi
@@ -169,5 +176,8 @@ var app = new Vue({
                       return object.name.toLowerCase().match(this.search.toLowerCase())
                   })
                 }
-              }
+            },
+            mounted: function(){
+                this.scroll();
+            }
 });
