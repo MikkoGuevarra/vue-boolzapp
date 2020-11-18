@@ -8,7 +8,7 @@ var app = new Vue({
         search: '',
         selectedMsg: null,
         answer: {
-            date: '10/01/2020 15:30:55',
+            date: this.dateNow,
             message: 'ok',
             status: 'received',
             isActive: false
@@ -119,6 +119,9 @@ var app = new Vue({
                     // console.log(obj);
                     this.scroll();
                 },
+                dateNow(){
+                        var currentDate = dayjs().format(' H' + ':m');
+                },
                 //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
                     this.contacts[this.currentIndex].messages.push(this.answer);
@@ -126,9 +129,11 @@ var app = new Vue({
                 },
                 //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
                 addMsg() {
+                    // var currentDate = dayjs().format(' H' + ':m')
+                    // console.log(currentDate);
                     //creo nuova variabile per il nuovo mess
                     var newObj= {
-                        date: '10/01/2020 15:30:55',
+                        date: this.dateNow(),
                         message: this.newMess,
                         status: 'sent',
                         isActive: false
@@ -167,7 +172,7 @@ var app = new Vue({
                     })
                 },
                 getDate(date) {
-                    return dayjs(date, 'DD/MM/YYYY', true).format('MMM' + ' H' + ':m');
+                    return dayjs(date, 'DD/MM/YYYY', true).format(' H' + ':m');
                 },
                 searchName() {
 
