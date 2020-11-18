@@ -7,12 +7,6 @@ var app = new Vue({
         newMess: '',
         search: '',
         selectedMsg: null,
-        answer: {
-            date: this.dateNow,
-            message: 'ok',
-            status: 'received',
-            isActive: false
-        },
         contacts: [
                     {
                         name: 'Michele',
@@ -124,7 +118,13 @@ var app = new Vue({
                 },
                 //creo funzione per la risposta automatica qnd l'utente inserisce nell'input
                 autoAnswer() {
-                    this.contacts[this.currentIndex].messages.push(this.answer);
+                    var answer = {
+                        date: this.dateNow(),
+                        message: 'ok',
+                        status: 'received',
+                        isActive: false
+                    };
+                    this.contacts[this.currentIndex].messages.push(answer);
                     this.scroll();
                 },
                 //funzione per la'input dell'utente viene pushato e dopo 1 sec arriva la risposta automatica
@@ -132,7 +132,7 @@ var app = new Vue({
                     // var currentDate = dayjs().format(' H' + ':m')
                     // console.log(currentDate);
                     //creo nuova variabile per il nuovo mess
-                    var newObj= {
+                    var newObj = {
                         date: this.dateNow(),
                         message: this.newMess,
                         status: 'sent',
@@ -163,7 +163,6 @@ var app = new Vue({
                 },
                 removeMsg(index) {
                     this.contacts[this.currentIndex].messages.splice(index, 1);
-
                 },
                 scroll() {
                     Vue.nextTick(function(){
@@ -172,7 +171,7 @@ var app = new Vue({
                     })
                 },
                 getDate(date) {
-                    return dayjs(date, 'DD/MM/YYYY', true).format(' H' + ':m');
+                    return dayjs(date, 'DD/MM/YYYY  HH:mm:ss', true).format(' H' + ':mm');
                 },
                 searchName() {
 
